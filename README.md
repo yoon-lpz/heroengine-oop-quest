@@ -20,4 +20,18 @@ The `war cry` will need at least 8 characters for it to be set.
 
 Defaults values:
 - `armor`: 2
-- `war cry`: Default war cry
+- `warCry`: Default war cry
+
+#### Mage
+Mages have `mana` and an `ark level`.
+
+Default values:
+- `mana`: 50
+- `arkLevel`: 1
+
+#### Rogue
+Rogues have a `harm multiplier` and a number of `hidden blades`.
+
+Default values: 
+- `harmMultiplier`: 1
+- `hiddenBlades`: 0
