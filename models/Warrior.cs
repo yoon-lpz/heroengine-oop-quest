@@ -31,5 +31,15 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
             base.Present();
             Console.WriteLine(String.Format(Messages.warriorPresentation, BattleCry));
         }
+        public override void TakeDamage(int damage)
+        {
+            if (Health > 0) {
+                Health -= (Math.Max(0, damage - Armor));
+
+                Console.Write(String.Format(Messages.takeDamage, Name, damage));
+                Console.Write(String.Format(Messages.takeDamageArmor, Math.Min(Armor, damage - Armor), damage - Armor));
+                Console.WriteLine(String.Format(Messages.takeDamageHP, Health, MaxHealth));
+            }
+        }
     }
 }

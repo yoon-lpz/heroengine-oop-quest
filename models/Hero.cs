@@ -44,15 +44,22 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
 
         public virtual void Attack(Hero hero)
         {
-            damage = 10 * Level;
-            Console.WriteLine(String.Format(Messages.attack, Name, damage));
-            hero.TakeDamage(damage);
+            if (Health > 0) {
+                damage = 10 * Level;
+                Console.WriteLine(String.Format(Messages.attack, Name, damage));
+                hero.TakeDamage(damage);
+            }
+            else Console.WriteLine(String.Format(Messages.defeated, Name));
         }
         public virtual void TakeDamage(int damage) {
-            Health -= damage;
+            if (Health > 0)
+            {
+                Health -= damage;
 
-            Console.Write(String.Format(Messages.takeDamage, Name, damage));
-            Console.WriteLine(String.Format(Messages.takeDamageHP, Health, MaxHealth));
+                Console.Write(String.Format(Messages.takeDamage, Name, damage));
+                Console.WriteLine(String.Format(Messages.takeDamageHP, Health, MaxHealth));
+            }
+            else Console.WriteLine(String.Format(Messages.defeated, Name));
         }
 
         public override string ToString() => string.Format(Messages.heroString, this.GetType().Name, Name, Level, Health, MaxHealth);
