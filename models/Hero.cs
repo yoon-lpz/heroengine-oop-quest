@@ -4,9 +4,9 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
 {
     public abstract class Hero
     {
-        private string _name;
+        private string _name = "Player";
         private int _level = 1;
-        private int _health;
+        private int _health = 100;
 
         public string Name {
             get => _name;

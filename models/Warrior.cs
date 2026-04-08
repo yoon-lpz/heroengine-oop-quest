@@ -4,8 +4,8 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
 {
     public class Warrior : Hero
     {
-        private int _armor;
-        private string _warCry;
+        private int _armor = 2;
+        private string _warCry = "Default war cry";
 
         public int Armor {
             get => _armor;
