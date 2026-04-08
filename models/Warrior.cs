@@ -18,7 +18,7 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
             set { if (Tools.isValidString(value, 8)) _battleCry = value; }
         }
 
-        public Warrior(string name, int level, int health, int armor, string battleCry) : base(name, level, health)
+        public Warrior(string name, int health, int armor, string battleCry) : base(name, health)
         {
             Armor = armor;
             BattleCry = battleCry;

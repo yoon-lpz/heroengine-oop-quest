@@ -19,7 +19,7 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
             set { if (Tools.isNaturalNumber(value)) _arkLevel = value; }
         }
 
-        public Mage(string name, int level, int health, int mana, int arkLevel) : base(name, level, health)
+        public Mage(string name, int health, int mana, int arkLevel) : base(name, health)
         {
             Mana = mana;
             ArkLevel = arkLevel;

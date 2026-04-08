@@ -19,7 +19,7 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
             set { if (value >= 0) _hiddenBlades = value; }
         }
 
-        public Rogue(string name, int level, int health, float harmMultiplier, int hiddenBlades) : base(name, level, health)
+        public Rogue(string name, int health, float harmMultiplier, int hiddenBlades) : base(name, health)
         {
             HarmMultiplier = harmMultiplier;
             HiddenBlades = hiddenBlades;
