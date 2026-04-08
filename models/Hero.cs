@@ -1,26 +1,32 @@
 ﻿using System;
+using pp7_heroengine_oop_quest_yoon_lpz.interfaces;
+using pp7_heroengine_oop_quest_yoon_lpz.ui;
 
 namespace pp7_heroengine_oop_quest_yoon_lpz.models
 {
-    public abstract class Hero
+    public abstract class Hero : ICombat, IPresentable
     {
+        private int _level = 1, _health = 100, _maxHealth = 100, damage;
         private string _name = "Player";
-        private int _level = 1;
-        private int _health = 100;
 
-        public string Name {
+        protected string Name {
             get => _name;
             set { if (Tools.isValidString(value)) _name = value; }
         }
-        public int Level
+        protected int Level
         {
             get => _level;
-            set => _level = value;
+            set { _level = Math.Max(1, value); }
         }
-        public int Health
+        protected int Health
         {
             get => _health;
-            set { if (Tools.isNaturalNumber(value)) _health = value; }
+            set { _health = Math.Max(_health, value); }
+        }
+        protected int MaxHealth
+        {
+            get => _maxHealth;
+            set { if (Tools.isNaturalNumber(value) && value >= Health) _maxHealth = value; }
         }
 
         protected Hero(string name, int level, int health)
@@ -28,6 +34,27 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
             Name = name;
             Level = level;
             Health = health;
+            MaxHealth = health;
         }
+
+        public virtual void Present()
+        {
+            Console.WriteLine(ToString());
+        }
+
+        public virtual void Attack(Hero hero)
+        {
+            damage = 10 * Level;
+            Console.WriteLine(String.Format(Messages.attack, Name, damage));
+            hero.TakeDamage(damage);
+        }
+        public virtual void TakeDamage(int damage) {
+            Health -= damage;
+
+            Console.Write(String.Format(Messages.takeDamage, Name, damage));
+            Console.WriteLine(String.Format(Messages.takeDamageHP, Health, MaxHealth));
+        }
+
+        public override string ToString() => string.Format(Messages.heroString, this.GetType().Name, Name, Level, Health, MaxHealth);
     }
 }

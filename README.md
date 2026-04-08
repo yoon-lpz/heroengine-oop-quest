@@ -15,12 +15,12 @@ Defaults values:
 Also, there are 3 types of heroes: `Warrior`, `Mage` and `Rogue`
 
 #### Warrior
-Warriors must have an `armor` and a `war cry`.
-The `war cry` will need at least 8 characters for it to be set.
+Warriors must have an `armor` and a `battle cry`.
+The `battle cry` will need at least 8 characters for it to be set.
 
 Defaults values:
 - `armor`: 2
-- `warCry`: Default war cry
+- `battleCry`: Default war cry
 
 #### Mage
 Mages have `mana` and an `ark level`.
