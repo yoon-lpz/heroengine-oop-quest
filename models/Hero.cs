@@ -16,7 +16,10 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
         protected int Level
         {
             get => _level;
-            set { _level = Math.Max(1, value); }
+            set {
+                _level = Math.Max(Level, value);
+                for (int i = 0; i < value - Level; i++) Health = (int)(Health * 1.1);
+            }
         }
         protected int Health
         {
@@ -29,10 +32,9 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
             set { if (Tools.isNaturalNumber(value) && value >= Health) _maxHealth = value; }
         }
 
-        protected Hero(string name, int level, int health)
+        protected Hero(string name, int health)
         {
             Name = name;
-            Level = level;
             Health = health;
             MaxHealth = health;
         }
