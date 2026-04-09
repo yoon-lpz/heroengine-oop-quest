@@ -1,11 +1,13 @@
-﻿using System;
+﻿using pp7_heroengine_oop_quest_yoon_lpz.ui;
+using System;
 
 namespace pp7_heroengine_oop_quest_yoon_lpz.models
 {
     public class Mage: Hero
     {
-        private int _mana = 50;
-        private int _arkLevel = 1;
+        private int _mana = 50, _arkLevel = 1;
+        private Ability[] _abilities = new Ability[0];
+        private Ability[] aux;
 
         public int Mana
         {
@@ -23,6 +25,36 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
         {
             Mana = mana;
             ArkLevel = arkLevel;
+        }
+
+        public void addAbility(Ability ability) {
+            if (!_abilities.Contains(ability))
+            {
+                aux = _abilities;
+                for (int i = 0; i < _abilities.Length; i++)
+                {
+                    aux[i] = _abilities[i];
+                }
+                aux[aux.Length - 1] = ability;
+                _abilities = aux;
+            } else Console.WriteLine(String.Format(Messages.abilityRepeated, Name, ability));
+        }
+
+        public void showAbilities()
+        {
+            Console.WriteLine(Messages.spacer);
+            Console.WriteLine(String.Format(Messages.showAbilitiesTitle, Name));
+            Console.WriteLine(Messages.spacer);
+
+            if (_abilities.Length == 0) Console.WriteLine(String.Format(Messages.noAbilities, Name));
+            else
+            {
+                foreach (Ability ability in _abilities)
+                {
+                    Console.WriteLine(String.Format(Messages.showAbilities, $"[{ability.Rarity}]".PadRight(13), ability.Name.PadRight(20), $"{ability.Type}".PadRight(10), $"{ability.Cost}".PadLeft(3)));
+                }
+                Console.WriteLine(Messages.spacer);
+            }
         }
     }
 }
