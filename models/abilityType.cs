@@ -4,7 +4,7 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
 {
     public enum abilityType
     {
-        Atack,
+        Attack,
         Defense,
         Healing,
         Support

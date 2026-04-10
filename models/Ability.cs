@@ -10,8 +10,8 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
         private abilityType _type;
         private rarity _rarity;
 
-        private string[] nameList = new string[0];
-        private string[] auxList;
+        private static string[] nameList = new string[0];
+        private static string[] auxList;
 
         public string Name {
             get => _name;

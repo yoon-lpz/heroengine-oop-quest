@@ -39,11 +39,18 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
             MaxHealth = health;
         }
 
+        /// <summary>
+        /// Shows on screen the Hero presentation.
+        /// </summary>
         public virtual void Present()
         {
             Console.WriteLine(ToString());
         }
 
+        /// <summary>
+        /// The active Hero deals damage to target <paramref name="hero"/>.
+        /// </summary>
+        /// <param name="hero">The Hero to be attacked.</param>
         public virtual void Attack(Hero hero)
         {
             if (Health > 0) {
@@ -53,6 +60,11 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
             }
             else Console.WriteLine(String.Format(Messages.defeated, Name));
         }
+
+        /// <summary>
+        /// The Hero's health decrease depending on its <paramref name="damage"/>.
+        /// </summary>
+        /// <param name="damage">Amount of life to be decreased.</param>
         public virtual void TakeDamage(int damage) {
             if (Health > 0)
             {
@@ -64,6 +76,9 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
             else Console.WriteLine(String.Format(Messages.defeated, Name));
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
         public override string ToString() => string.Format(Messages.heroString, this.GetType().Name, Name, Level, Health, MaxHealth);
     }
 }

@@ -24,13 +24,24 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
             BattleCry = battleCry;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
         public override string ToString() => base.ToString() +  String.Format(Messages.warriorString, Armor);
 
+        /// <summary>
+        /// Shows on screen the Hero presentation.
+        /// </summary>
         public override void Present()
         {
             base.Present();
             Console.WriteLine(String.Format(Messages.warriorPresentation, BattleCry));
         }
+
+        /// <summary>
+        /// The Hero's health decrease depending on its <paramref name="damage"/> and the current Hero armor.
+        /// </summary>
+        /// <param name="damage">Amount of life to be decreased.</param>
         public override void TakeDamage(int damage)
         {
             if (Health > 0) {

@@ -19,5 +19,7 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.ui
         public const string showAbilities = "  {0}{1}| Type: {2}| Cost: {3} mana";
         public const string noAbilities = "{0} has no abilities.";
         public const string spacer = "===========================================";
+
+        public const string notKnowAbility = "{0} does not know the ability {1}";
     }
 }
