@@ -26,11 +26,5 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
             get => _strength;
             set { if (Tools.isNaturalNumber(value)) _strength = value; }
         }
-
-        protected Enemy(int health, int strength) {
-            Health = health;
-            MaxHealth = health;
-            Strength = strength;
-        }
     }
 }
