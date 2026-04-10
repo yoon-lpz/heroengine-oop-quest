@@ -6,12 +6,14 @@ namespace pp7_heroengine_oop_quest_yoon_lpz.models
     {
         private int _health, _maxHealth, _strength;
 
-        protected int Health {
+        protected int Health
+        {
             get => _health;
-            set { if (Tools.isNaturalNumber(value)) {
-                    _health = value;
-                    MaxHealth = value;
-                }
+            set
+            {
+                if (value > 0 && MaxHealth == 0) _health = value; MaxHealth = value ;
+                else if (value < 0) _health = 0;
+                else _health = Math.Min(MaxHealth, value);
             }
         }
 
